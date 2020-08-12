@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("../header"); %>
+
+  <% if (user != null) { %>
+  <% if (user.isdark == "dark") { %>
+    <body style="background-color: rgb(55, 55, 55);">
+        <%- include("../menu"); %> <%- include("../colorButton"); %>
+        <div style="margin: 80px;">
+            <h1 style="color: ivory;"><%=word.word%></h1>
+            <% if ( lang == "kor" && word.class == 0 ) { %>
+                <h7 style="color: lightgray;">동사기본형 : <%=word.stem%>다</h7><br>
+                <h7 style="color: lightgray;">동사활용형 : <%=word.stem%>습니다(서술형) &nbsp; <%=word.stem%>어(아)라(명령형) &nbsp;  안 <%=word.stem%>다('안' 부정) &nbsp; 못 <%=word.stem%>다('못' 부정) &nbsp; <%=word.stem%>자(청유형) &nbsp; <%=word.stem%>는다면(가정형) &nbsp; <%=word.stem%>을 것이다(미래,의지) &nbsp; <%=word.stem%>을 수 있다(가능형)</h7><br>
+            <% }else if ( lang == "kor" && word.class == 1 ) { %>
+                <h7 style="color: lightgray;">동사기본형 : <%=word.stem%>다</h7><br>
+                <h7 style="color: lightgray;">동사활용형 : <%=word.stem%>ㅂ니다(서술형) &nbsp; <%=word.stem%>어(아)라(명령형) &nbsp;  안 <%=word.stem%>다('안' 부정) &nbsp; 못 <%=word.stem%>다('못' 부정) &nbsp; <%=word.stem%>자(청유형) &nbsp; <%=word.stem%>ㄴ다면(가정형) &nbsp; <%=word.stem%>ㄹ 것이다(미래,의지) &nbsp; <%=word.stem%>ㄹ 수 있다(가능형)</h7><br>
+            <% } else if ( lang == "rus" && word.class == 100 ) { %>
+                <h7 style="color: lightgray;">인칭별 변화</h7><br>
+                <h7 style="color: lightgray;">1인칭 단수 <%=word.stem%>ю &nbsp; &nbsp; &nbsp; 2인칭 단수 <%=word.stem%>ешь &nbsp; &nbsp; &nbsp; 3인칭 단수 <%=word.stem%>ет</h7><br>
+                <h7 style="color: lightgray;">1인칭 복수 <%=word.stem%>ем &nbsp; &nbsp; &nbsp; 2인칭 복수 <%=word.stem%>ете &nbsp; &nbsp; &nbsp; 3인칭 복수 <%=word.stem%>ют</h7><br>
+            <% } else if ( lang == "rus" && word.class == 101 ) { %>
+                <h7 style="color: lightgray;">인칭별 변화</h7><br>
+                <h7 style="color: lightgray;">1인칭 단수 <%=word.stem%>юсь &nbsp; &nbsp; &nbsp; 2인칭 단수 <%=word.stem%>ешься &nbsp; &nbsp; &nbsp; 3인칭 단수 <%=word.stem%>ется</h7><br>
+                <h7 style="color: lightgray;">1인칭 복수 <%=word.stem%>емся &nbsp; &nbsp; &nbsp; 2인칭 복수 <%=word.stem%>етесь &nbsp; &nbsp; &nbsp; 3인칭 복수 <%=word.stem%>ются</h7><br>
+            <% } else if ( lang == "rus" && word.class == 102 ) { %>
+                <h7 style="color: lightgray;">인칭별 변화</h7><br>
+                <h7 style="color: lightgray;">1인칭 단수 <%=word.stem%>ю &nbsp; &nbsp; &nbsp; 2인칭 단수 <%=word.stem%>ишь &nbsp; &nbsp; &nbsp; 3인칭 단수 <%=word.stem%>ит</h7><br>
+                <h7 style="color: lightgray;">1인칭 복수 <%=word.stem%>им &nbsp; &nbsp; &nbsp; 2인칭 복수 <%=word.stem%>ите &nbsp; &nbsp; &nbsp; 3인칭 복수 <%=word.stem%>ят</h7><br>    
+            <% } else if ( lang == "rus" && word.class == 103 ) { %>
+                <h7 style="color: lightgray;">인칭별 변화</h7><br>
+                <h7 style="color: lightgray;">1인칭 단수 <%=word.stem%>усь &nbsp; &nbsp; &nbsp; 2인칭 단수 <%=word.stem%>ишься &nbsp; &nbsp; &nbsp; 3인칭 단수 <%=word.stem%>ится</h7><br>
+                <h7 style="color: lightgray;">1인칭 복수 <%=word.stem%>имся &nbsp; &nbsp; &nbsp; 2인칭 복수 <%=word.stem%>итесь &nbsp; &nbsp; &nbsp; 3인칭 복수 <%=word.stem%>атся</h7><br>
+            <% } else if ( lang == "esp" && word.class == 200 ) { %>
+                <h7 style="color: lightgray;">인칭별 변화</h7><br>
+                <h7 style="color: lightgray;">1인칭 단수 <%=word.stem%>o &nbsp; &nbsp; &nbsp; 2인칭 단수 <%=word.stem%>as &nbsp; &nbsp; &nbsp; 3인칭 단수 <%=word.stem%>a</h7><br>
+                <h7 style="color: lightgray;">1인칭 복수 <%=word.stem%>amos &nbsp; &nbsp; &nbsp; 2인칭 복수 <%=word.stem%>áis &nbsp; &nbsp; &nbsp; 3인칭 복수 <%=word.stem%>an</h7><br>
+            <% } else if ( lang == "esp" && word.class == 201 ) { %>
+                <h7 style="color: lightgray;">인칭별 변화</h7><br>
+                <h7 style="color: lightgray;">1인칭 단수 <%=word.stem%>o &nbsp; &nbsp; &nbsp; 2인칭 단수 <%=word.stem%>es &nbsp; &nbsp; &nbsp; 3인칭 단수 <%=word.stem%>e</h7><br>
+                <h7 style="color: lightgray;">1인칭 복수 <%=word.stem%>emos &nbsp; &nbsp; &nbsp; 2인칭 복수 <%=word.stem%>éis &nbsp; &nbsp; &nbsp; 3인칭 복수 <%=word.stem%>en</h7><br>
+            <% } else if ( lang == "esp" && word.class == 202 ) { %>
+                <h7 style="color: lightgray;">인칭별 변화</h7><br>
+                <h7 style="color: lightgray;">1인칭 단수 <%=word.stem%>o &nbsp; &nbsp; &nbsp; 2인칭 단수 <%=word.stem%>es &nbsp; &nbsp; &nbsp; 3인칭 단수 <%=word.stem%>e</h7><br>
+                <h7 style="color: lightgray;">1인칭 복수 <%=word.stem%>imos &nbsp; &nbsp; &nbsp; 2인칭 복수 <%=word.stem%>ís &nbsp; &nbsp; &nbsp; 3인칭 복수 <%=word.stem%>en</h7><br>
+            <% } %>
+
+            <hr color="ivory">
+
+            <h3 style="color: ivory;">의미 : <%=word.meaning%></h3>
+        </div>
+        <%-include("../footer"); %>        
+  <% } else { %>
+    <body>
+        <%- include("../menu"); %> <%- include("../colorButton"); %>
+        <div style="margin: 80px;">
+            <h1><%=word.word%></h1>
+            <% if ( lang == "kor" && word.class == 0 ) { %>
+                <h7 >동사기본형 : <%=word.stem%>다</h7><br>
+                <h7 >동사활용형 : <%=word.stem%>습니다(서술형) &nbsp; <%=word.stem%>어(아)라(명령형) &nbsp;  안 <%=word.stem%>다('안' 부정) &nbsp; 못 <%=word.stem%>다('못' 부정) &nbsp; <%=word.stem%>자(청유형) &nbsp; <%=word.stem%>는다면(가정형) &nbsp; <%=word.stem%>을 것이다(미래,의지) &nbsp; <%=word.stem%>을 수 있다(가능형)</h7><br>
+            <% }else if ( lang == "kor" && word.class == 1 ) { %>
+                <h7 >동사기본형 : <%=word.stem%>다</h7><br>
+                <h7 >동사활용형 : <%=word.stem%>ㅂ니다(서술형) &nbsp; <%=word.stem%>어(아)라(명령형) &nbsp;  안 <%=word.stem%>다('안' 부정) &nbsp; 못 <%=word.stem%>다('못' 부정) &nbsp; <%=word.stem%>자(청유형) &nbsp; <%=word.stem%>ㄴ다면(가정형) &nbsp; <%=word.stem%>ㄹ 것이다(미래,의지) &nbsp; <%=word.stem%>ㄹ 수 있다(가능형)</h7><br>
+            <% } else if ( lang == "rus" && word.class == 100 ) { %>
+                <h7 >인칭별 변화</h7><br>
+                <h7 >1인칭 단수 <%=word.stem%>ю &nbsp; &nbsp; &nbsp; 2인칭 단수 <%=word.stem%>ешь &nbsp; &nbsp; &nbsp; 3인칭 단수 <%=word.stem%>ет</h7><br>
+                <h7 >1인칭 복수 <%=word.stem%>ем &nbsp; &nbsp; &nbsp; 2인칭 복수 <%=word.stem%>ете &nbsp; &nbsp; &nbsp; 3인칭 복수 <%=word.stem%>ют</h7><br>
+            <% } else if ( lang == "rus" && word.class == 101 ) { %>
+                <h7 >인칭별 변화</h7><br>
+                <h7 >1인칭 단수 <%=word.stem%>юсь &nbsp; &nbsp; &nbsp; 2인칭 단수 <%=word.stem%>ешься &nbsp; &nbsp; &nbsp; 3인칭 단수 <%=word.stem%>ется</h7><br>
+                <h7 >1인칭 복수 <%=word.stem%>емся &nbsp; &nbsp; &nbsp; 2인칭 복수 <%=word.stem%>етесь &nbsp; &nbsp; &nbsp; 3인칭 복수 <%=word.stem%>ются</h7><br>
+            <% } else if ( lang == "rus" && word.class == 102 ) { %>
+                <h7 >인칭별 변화</h7><br>
+                <h7 >1인칭 단수 <%=word.stem%>ю &nbsp; &nbsp; &nbsp; 2인칭 단수 <%=word.stem%>ишь &nbsp; &nbsp; &nbsp; 3인칭 단수 <%=word.stem%>ит</h7><br>
+                <h7 >1인칭 복수 <%=word.stem%>им &nbsp; &nbsp; &nbsp; 2인칭 복수 <%=word.stem%>ите &nbsp; &nbsp; &nbsp; 3인칭 복수 <%=word.stem%>ят</h7><br>    
+            <% } else if ( lang == "rus" && word.class == 103 ) { %>
+                <h7 >인칭별 변화</h7><br>
+                <h7 >1인칭 단수 <%=word.stem%>усь &nbsp; &nbsp; &nbsp; 2인칭 단수 <%=word.stem%>ишься &nbsp; &nbsp; &nbsp; 3인칭 단수 <%=word.stem%>ится</h7><br>
+                <h7 >1인칭 복수 <%=word.stem%>имся &nbsp; &nbsp; &nbsp; 2인칭 복수 <%=word.stem%>итесь &nbsp; &nbsp; &nbsp; 3인칭 복수 <%=word.stem%>атся</h7><br>
+            <% } else if ( lang == "esp" && word.class == 200 ) { %>
+                <h7 >인칭별 변화</h7><br>
+                <h7 >1인칭 단수 <%=word.stem%>o &nbsp; &nbsp; &nbsp; 2인칭 단수 <%=word.stem%>as &nbsp; &nbsp; &nbsp; 3인칭 단수 <%=word.stem%>a</h7><br>
+                <h7 >1인칭 복수 <%=word.stem%>amos &nbsp; &nbsp; &nbsp; 2인칭 복수 <%=word.stem%>áis &nbsp; &nbsp; &nbsp; 3인칭 복수 <%=word.stem%>an</h7><br>
+            <% } else if ( lang == "esp" && word.class == 201 ) { %>
+                <h7 >인칭별 변화</h7><br>
+                <h7 >1인칭 단수 <%=word.stem%>o &nbsp; &nbsp; &nbsp; 2인칭 단수 <%=word.stem%>es &nbsp; &nbsp; &nbsp; 3인칭 단수 <%=word.stem%>e</h7><br>
+                <h7 >1인칭 복수 <%=word.stem%>emos &nbsp; &nbsp; &nbsp; 2인칭 복수 <%=word.stem%>éis &nbsp; &nbsp; &nbsp; 3인칭 복수 <%=word.stem%>en</h7><br>
+            <% } else if ( lang == "esp" && word.class == 202 ) { %>
+                <h7 >인칭별 변화</h7><br>
+                <h7 >1인칭 단수 <%=word.stem%>o &nbsp; &nbsp; &nbsp; 2인칭 단수 <%=word.stem%>es &nbsp; &nbsp; &nbsp; 3인칭 단수 <%=word.stem%>e</h7><br>
+                <h7 >1인칭 복수 <%=word.stem%>imos &nbsp; &nbsp; &nbsp; 2인칭 복수 <%=word.stem%>ís &nbsp; &nbsp; &nbsp; 3인칭 복수 <%=word.stem%>en</h7><br>
+            <% } %>
+        <hr >
+
+        <h3>의미 : <%=word.meaning%></h3>
+    </div>
+    </div>
+
+        <%-include("../footer"); %>
+  <% } %>
+<%-include("../darkScript");%>
+  </body>
+  
+  <% } else { %>
+    <body>
+        
+    </body>
+  <% } %>
+</html>

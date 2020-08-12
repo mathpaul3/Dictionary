@@ -1,0 +1,58 @@
+<!--Navbar -->
+<nav class="mb-1 navbar navbar-expand-lg navbar-dark #ff8f00 amber darken-3">
+  <a class="navbar-brand" href="/search">
+    <img src="/images/fox_image.png" height="35" alt="F_Dictionary" /> Fennec
+    Dictionary
+  </a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarSupportedContent-333"
+    aria-controls="navbarSupportedContent-333"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent-333">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="/admin"
+          ><span style="color: chartreuse;">관리자페이지</span></a
+        >
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/search">유저페이지</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a
+          class="nav-link dropdown-toggle"
+          id="navbarDropdownMenuLink-333"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+          >언어선택
+        </a>
+        <div
+          class="dropdown-menu dropdown-default"
+          aria-labelledby="navbarDropdownMenuLink-333"
+        >
+          <a class="dropdown-item" href="/admin/kor">한국어</a>
+          <a class="dropdown-item" href="/admin/eng">영어</a>
+          <a class="dropdown-item" href="/admin/rus">러시아어</a>
+          <a class="dropdown-item" href="/admin/esp">스페인어</a>
+        </div>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link"><%= user.name %>님</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/user/logout">Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<!--/.Navbar -->

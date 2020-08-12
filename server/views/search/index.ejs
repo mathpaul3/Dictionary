@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("../header"); %>
+  <% if (user != null) {%>
+  <% if (user.isdark == "dark") { %>
+    <body style="background-color: rgb(55, 55, 55);">
+  <% } else { %>
+    <body>
+  <% } %>
+    <%- include("../menu"); %> <%- include("./searchbar"); %>
+    <%-include("../footer"); %> <%- include("../searchScript"); %> <%-include("../darkScript");%>
+  </body>
+  <% } else { %>
+    <body>
+      
+    </body>
+    <% } %>
+</html>

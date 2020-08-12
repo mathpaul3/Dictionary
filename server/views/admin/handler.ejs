@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("../header"); %>
+
+  <body>
+    <%- include("./menu"); %>
+    <h1 style="margin-top: 1rem;"><%=langkor%> 단어 등록</h1>
+    <!-- 상세조회 -->
+    <form id="createForm">
+      <!-- Material input -->
+      <div class="md-form">
+        <input type="text" id="word" class="form-control" required />
+        <label for="word">Input Word</label>
+      </div>
+
+      <div class="md-form">
+        <input type="text" id="meaning" class="form-control" required />
+        <label for="meaning">Input Meaning</label>
+      </div>
+
+      <div class="md-form">
+        <input type="text" id="wordClass" class="form-control" />
+        <label for="wordClass">Input class</label>
+      </div>
+
+      <div class="md-form">
+        <input type="text" id="stem" class="form-control" />
+        <label for="stem">Input stem</label>
+      </div>
+
+      <div style="display: flex;">
+        <div style="flex: 1;">
+          <button type="submit" class="btn btn-primary">
+            저장
+          </button>
+        </div>
+        <div style="flex: 13;">
+          <p style="margin: 2px;">
+            class 번호 >> <br />
+            0~999: 동사 &nbsp; 0 규칙활용동사(받침) &nbsp; 1
+            규칙활용동사(받침없음) &nbsp; 2 르불규칙활용동사 &nbsp; 3
+            ㅂ불규칙활용동사 &nbsp; 4 불규칙종성어미동사(ㄴ,ㄹ,ㅂ,ㅆ) &nbsp; 5
+            ㅅ불규칙활용동사 &nbsp; 6 우불규칙활용동사 &nbsp; 7 오규칙활용동사
+            &nbsp; 8 ㅡ탈락불규칙활용동사 &nbsp; 9 거라/너라불규칙활용동사
+            &nbsp; 10 러불규칙활용동사 &nbsp; 11 여불규칙활용동사 &nbsp; 12
+            종성ㅎ불규칙활용동사 &nbsp; 13 ㄷ불규칙활용동사&nbsp; 100
+            (러시아어)1형식동사1(-ать,-ять) &nbsp; 101
+            (러시아어)1형식동사2(-аться,-яться) &nbsp; 102
+            (러시아어)2형식동사1(-ить,-еть) &nbsp; 103
+            (러시아어)2형식동사2(-иться,-еться) &nbsp; 200
+            (스페인어)1군규칙동사(-ar) &nbsp; 201 (스페인어)2군규칙동사(-er)
+            &nbsp; 202 (스페인어)3군규칙동사(-ir)
+            <br />
+            1000~1999: 형용사 &nbsp; 1000 일반형용사<br />
+            2000~2999: 명사 &nbsp; 2000 일반(보통)명사 &nbsp; 2001 의존명사
+            &nbsp; 2002 고유명사(인명) &nbsp; 2003 고유명사(기업/상품명) &nbsp;
+            2100 (러시아어)남성명사 &nbsp; 2101 (러시아어)여성명사 &nbsp; 2102
+            (러시아어)중성명사<br />
+            3000~3999: 대명사 &nbsp; 3000 일반대명사 &nbsp; 3001 인칭대명사
+            &nbsp; 3002 지시대명사 &nbsp; 3003 관계대명사<br />
+            4000~4999: 조사 &nbsp; 4000 일반조사 &nbsp; 4001 주격조사 &nbsp;
+            4002 서술격조사 &nbsp; 4003 관형격조사 &nbsp; 4004 목적격(대격)조사
+            &nbsp; 4005 보격조사 &nbsp; 4006 부사격조사 &nbsp; 4007 호격조사
+            &nbsp; 4008 접속조사 &nbsp; 4009 보조사<br />
+            5000~5999: 수사 &nbsp; 5000 일반수사<br />
+            6000~6999: 관형사 &nbsp; 6000 일반관형사<br />
+            7000~7999: 부사 &nbsp; 7000 일반부사 &nbsp; 7001 관계부사<br />
+            8000~8499: 감탄사 &nbsp; 8000 일반감탄사<br />
+            9000~9999: 양사 &nbsp; 9000 일반양사<br />
+            10000~10999: 접속사 &nbsp; 10000 일반접속사<br />
+            11000~11999: 전치사 &nbsp; 11000 일반전치사<br />
+            12000~12999: 소사 &nbsp; 12000 일반소사<br />
+            자세한 내용은 블로그 참조 <br />
+          </p>
+        </div>
+      </div>
+    </form>
+
+    <h1 style="margin-top: 4rem;">최근 등록한 단어</h1>
+    <% result.forEach(word => { %>
+    <div
+      class="card card-body"
+      style="
+        margin: 10px 5%;
+        padding: 0;
+        padding-left: 20px;
+        padding-top: 10px;
+        height: 10rem;
+      "
+    >
+      <form id="updateSubmitForm" style="display: flex;">
+        <div style="flex: 10;" style="height: fit-content;">
+          <h2>
+            <input
+              id="update_word"
+              type="text"
+              value="<%=word.word%>"
+              size="49px"
+            />
+          </h2>
+          <input
+            id="update_meaning"
+            type="text"
+            value="<%=word.meaning%>"
+            size="100px"
+          />
+          <input
+            id="update_class"
+            type="text"
+            value="<%=word.class%>"
+            size="100px"
+            placeholder="Input class"
+          />
+          <input
+            id="update_stem"
+            type="text"
+            value="<%=word.stem%>"
+            size="100px"
+            placeholder="Input stem"
+          />
+          <input id="updateSubmit_id" type="hidden" value="<%=word._id%>" />
+        </div>
+
+        <div style="flex: 1;">
+          <button id="updateSubmitButton" type="submit">
+            <img
+              src="/images/update.png"
+              alt="update"
+              height="20px"
+              width="20px"
+            />
+          </button>
+
+          <input id="delete_id" type="hidden" value="<%=word._id%>" />
+          <button id="deleteButton" type="submit">
+            <img
+              src="/images/delete.png"
+              alt="delete"
+              height="20px"
+              width="20px"
+            />
+          </button>
+        </div>
+      </form>
+    </div>
+    <% }); %> <%- include("../footer"); %>
+
+    <script>
+      $(function () {
+        $("#createForm").submit((event) => {
+          event.preventDefault();
+          // 등록
+          const word = $("#word").val();
+          const meaning = $("#meaning").val();
+          const wordClass = $("#wordClass").val();
+          const stem = $("#stem").val();
+
+          $.ajax({
+            url: "/admin/<%=lang%>",
+            type: "POST",
+            data: { word, meaning, wordClass, stem },
+          })
+            .done(() => {
+              location.reload();
+            })
+            .fail((request, status, error) => {
+              alert(request.responseText);
+            });
+        });
+      });
+    </script>
+
+    <script>
+      $(function () {
+        $("[id^=updateSubmitButton]").on("click", (event) => {
+          event.preventDefault();
+
+          // 값 받아오기
+          const word = $(
+            event.target.parentElement.parentElement.parentElement.childNodes[1]
+              .childNodes[1].childNodes[1]
+          ).val();
+          const meaning = $(
+            event.target.parentElement.parentElement.parentElement.childNodes[1]
+              .childNodes[3]
+          ).val();
+          const wordClass = $(
+            event.target.parentElement.parentElement.parentElement.childNodes[1]
+              .childNodes[5]
+          ).val();
+          const stem = $(
+            event.target.parentElement.parentElement.parentElement.childNodes[1]
+              .childNodes[7]
+          ).val();
+          const _id = $(
+            event.target.parentElement.parentElement.parentElement.childNodes[1]
+              .childNodes[9]
+          ).val();
+
+          console.log(
+            "_id: ",
+            _id,
+            "wordClass: ",
+            wordClass,
+            "\n",
+            word,
+            "은(는)",
+            meaning,
+            "입니다\n어근은 ",
+            stem,
+            "입니다."
+          );
+          $.ajax({
+            url: "/admin/<%=lang%>",
+            type: "PUT",
+            data: { word, meaning, wordClass, stem, _id },
+          })
+            .done(() => {
+              location.reload();
+              alert("수정되었습니다");
+            })
+            .fail((request, status, error) => {
+              alert(request.responseText);
+            });
+        });
+      });
+    </script>
+
+    <script>
+      $(function () {
+        $("[id^=deleteButton]").on("click", (event) => {
+          event.preventDefault();
+
+          // _id 받아오기
+          const _id = $(
+            event.target.parentElement.parentElement.childNodes[3]
+          ).val();
+          const word = $(
+            event.target.parentElement.parentElement.parentElement.childNodes[1]
+              .childNodes[1].childNodes[1]
+          ).val();
+
+          if (confirm("정말로 삭제하시겠습니까?")) {
+            alert(word + "을(를) 삭제합니다");
+          }
+
+          $.ajax({
+            url: "/admin/<%=lang%>",
+            type: "DELETE",
+            data: { _id },
+          })
+            .done(() => {
+              location.reload();
+            })
+            .fail((request, status, error) => {
+              alert(request.responseText);
+            });
+        });
+      });
+    </script>
+  </body>
+</html>

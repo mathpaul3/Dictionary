@@ -1,0 +1,19 @@
+<script>
+  $(function () {
+    $("#searchForm").submit((event) => {
+      event.preventDefault();
+      const word = $("#word").val();
+
+      $.ajax({
+        url: "/search/<%=lang%>/" + word,
+        type: "GET",
+      })
+        .done(() => {
+          location.href = "/search/<%=lang%>/" + word;
+        })
+        .fail((request, status, error) => {
+          alert(request.responseText);
+        });
+    });
+  });
+</script>

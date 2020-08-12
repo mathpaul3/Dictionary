@@ -1,0 +1,40 @@
+<script>
+  $(function () {
+    $("#dark").submit((e) => {
+      e.preventDefault();
+      const isdark = $("#darkinput").val();
+      $.ajax({
+        url: "/search/changeColor",
+        type: "PUT",
+        data: { isdark },
+      })
+        .done(() => {
+          location.reload();
+        })
+        .fail((request, status, error) => {
+          alert(request.responseText);
+        });
+    });
+  });
+</script>
+
+<script>
+  $(function () {
+    $("#light").submit((e) => {
+      e.preventDefault();
+      const isdark = $("#lightinput").val();
+
+      $.ajax({
+        url: "/search/changeColor",
+        type: "PUT",
+        data: { isdark },
+      })
+        .done(() => {
+          location.reload();
+        })
+        .fail((request, status, error) => {
+          alert(request.responseText);
+        });
+    });
+  });
+</script>

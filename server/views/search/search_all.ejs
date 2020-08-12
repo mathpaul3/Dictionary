@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("../header"); %>
+
+  <% if (user.isdark == "dark") { %>
+    <body style="background-color: rgb(55, 55, 55);">
+  <% } else { %>
+    <body>
+  <% } %>
+    <%- include("../menu"); %> <%- include("./searchbar"); %>
+    <% if (user.isdark == "dark") { %>
+      <%result.forEach(word => { %>
+        <div
+          class="card card-body"
+          style="
+            margin: 10px 10%;
+            padding: 0;
+            padding-left: 20px;
+            padding-top: 10px;
+            background-color: rgb(105, 105, 105);
+          "
+        >
+          <h2 class="display-5" style="color: ivory;">
+            <a style="color: ivory;" href="/search/<%=lang%>/<%=word.word%>/<%=word._id%>"
+              ><%=word.word%></a
+            >
+          </h2>
+          <p class="lead" style="color: ivory;"><%=word.meaning%></p>
+        </div>
+  <%  });
+    } else {
+      result.forEach(word => {%>
+        <div
+          class="card card-body"
+          style="
+            margin: 10px 10%;
+            padding: 0;
+            padding-left: 20px;
+            padding-top: 10px;
+          "
+        >
+          <h2 class="display-5">
+            <a href="/search/<%=lang%>/<%=word.word%>/<%=word._id%>" style="color: black;"
+              ><%=word.word%></a
+            >
+          </h2>
+          <p class="lead"><%=word.meaning%></p>
+        </div>
+  <%  });
+    } %>
+    <%-include("../footer"); %><%-include("../searchSCript");%><%-include("../darkScript");%>
+  </body>
+</html>

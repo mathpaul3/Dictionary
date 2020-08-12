@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%-include("../header"); %> <% if (user != null) { %> <% if (user.isdark ==
+  "dark") {%>
+  <body style="background-color: rgb(55, 55, 55);">
+    <%-include("../menu"); %> <%-include("../colorButton")%>
+    <h1 style="margin-top: 3rem; color: ivory;">검색기록</h1>
+    <% for (const word of user.history) { %>
+    <div
+      class="card card-body"
+      style="
+        margin: 10px 10%;
+        padding: 0;
+        padding-left: 20px;
+        padding-top: 10px;
+        background-color: rgb(105, 105, 105);
+      "
+    >
+      <h2 class="display-5" style="color: ivory;"><%=word%></h2>
+    </div>
+    <% } %> <%-include("../footer"); %> <%-include("../darkScript")%>
+  </body>
+  <% } else { %>
+  <body>
+    <%-include("../menu"); %> <%-include("../colorButton")%>
+    <h1 style="margin-top: 3rem;">검색기록</h1>
+    <% for (const word of user.history) { %>
+    <div
+      class="card card-body"
+      style="
+        margin: 10px 10%;
+        padding: 0;
+        padding-left: 20px;
+        padding-top: 10px;
+      "
+    >
+      <h2 class="display-5" style="color: black;"><%=word%></h2>
+    </div>
+    <% } %> <%-include("../footer"); %> <%-include("../darkScript")%>
+  </body>
+  <% } %> <% } else { %>
+  <body></body>
+  <% } %>
+</html>

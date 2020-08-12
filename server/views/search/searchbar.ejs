@@ -1,0 +1,43 @@
+<% if ( user != null ) { %>
+<!-- Search form -->
+<div style="display: flex; margin-top: 3rem;">
+  <div style="flex: 2;">
+    <% if ( user.isdark == "dark" ) { %>
+    <h1 style="margin-right: 2rem; text-align: right; color: floralwhite;">
+      <%=langkor%>사전
+    </h1>
+    <% } else { %>
+    <h1 style="margin-right: 2rem; text-align: right;">
+      <%=langkor%>사전
+    </h1>
+    <% } %>
+  </div>
+  <form id="searchForm" class="form-inline" style="flex: 2;">
+    <!-- <i class="fas fa-search" aria-hidden="true"></i> -->
+    <% if ( user.isdark == "dark" ) {%>
+    <input
+      id="word"
+      class="form-control form-control-sm ml-3 w-75"
+      type="text"
+      placeholder="Search"
+      aria-label="Search"
+      style="background-color: rgb(55, 55, 55); color: ivory;"
+    />
+    <% } else { %>
+    <input
+      id="word"
+      class="form-control form-control-sm ml-3 w-75"
+      type="text"
+      placeholder="Search"
+      aria-label="Search"
+    />
+    <% } %>
+  </form>
+  <div style="flex: 1;"></div>
+</div>
+
+<%-include("../colorButton")%> <% if (user.isdark == "dark") {%>
+<div><hr style="margin-top: 4rem; color: ivory;" /></div>
+<% } else { %>
+<div><hr style="margin-top: 4rem;" /></div>
+<% } %> <% } %>
